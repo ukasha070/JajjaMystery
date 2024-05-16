@@ -10,7 +10,7 @@ handler404 = 'base.views.error_404_view'
 urlpatterns = [
     path('jajja/', admin.site.urls),
     path("", include("base.urls"), name='base'),
-    path("services/", include("services.urls"), name='services'),
+    path("services/", include("service.urls"), name='services'),
 ]
 
 if settings.DEBUG:

@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.contrib.auth import logout
 
 from .forms import MessageForm
-from services.models import Service, ServiceList
-from JaajaMystery.send_emails import send_email_to_jajja
+from service.models import Service, ServiceList
+from jajjaMystery.send_emails import send_email_to_jajja
 
 
 def index_view(request):

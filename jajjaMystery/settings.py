@@ -16,6 +16,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = "base.User"
 
 # Application definition
 
@@ -26,6 +27,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+        'compressor',
+    'service',
+    'base'
 ]
 
 MIDDLEWARE = [
@@ -43,7 +47,7 @@ ROOT_URLCONF = 'jajjaMystery.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,3 +116,36 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+COMPRESS_ROOT = BASE_DIR / 'static'
+COMPRESS_ENABLED = True
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT= os.path.join(BASE_DIR, "media")
+
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'",)
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 716800  # 700kb in bytes
+FILE_UPLOAD_MAX_MEMORY_SIZE = 716800  # 700kb in bytes
+
+CONTENT_TYPES = ['image']
+MAX_UPLOAD_SIZE = 716800
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_FROM = 'My Website.'
+EMAIL_HOST_USER = 'workukasha@gmail.com'
+EMAIL_HOST_PASSWORD = 'kbgtczcngsozzgrd'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
+
+SESSION_COOKIE_AGE = 900
+SESSION_SAVE_EVERY_REQUEST = True

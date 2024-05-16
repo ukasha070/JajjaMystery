@@ -1,5 +1,5 @@
 from django import forms
-from JaajaMystery.utils import check_for_xss
+from jajjaMystery.utils import check_for_xss
 from django.core.exceptions import ValidationError
 
 input_class_name = "w-full h-12 outline-none outline-transparent px-4 bg-transparent text-neutral-1 border border-neutral-100 dark: border-neutral-800 rounded-xl"
