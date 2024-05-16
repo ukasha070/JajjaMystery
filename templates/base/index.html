@@ -1,0 +1,100 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block content %}
+<div id="banner" class="flex flex-col space-y-4 py-6 mb-4">
+  <h1 class="text-3xl md:text-7xl font-bold mb-3">Jaaja Mumalansonga</h1>
+  <p class="md:text-base">
+    Jajja Mumalansoga is a Esteemed Medicine Man, Traditional Healer, Seer, Witch doctor and Ritualist in East Africa, Uganda
+  </p>
+</div>
+
+<div id="services" class="flex flex-col space-y-4 mb-10">
+  <div class="">
+    <h3 class="capitalize text-3xl md:text-4xl mb-2">Services i Offer</h3>
+    <!-- <p class="md:text-base">
+    Jaaja Mumalansoga, hailed as one of East Africa's preeminent traditional healers, possesses unparalleled ancestral
+    insight and knowledge. Unleash the unparalleled potency of her spells, whether for matters of the heart, business
+    endeavors, safeguarding, or any other pursuit. Esteemed throughout East Africa, He is revered for her mastery in spell
+    casting, witchcraft, and myriad other arcane disciplines.
+    </p> -->
+  <p class="md:text-base">
+      Jaaja Mumalansoga is widely regarded as one of the top traditional healers in East Africa, known for his deep wisdom and
+      expertise. Experience the incredible power of his spells, whether you're seeking love, success in business, protection,
+      or anything else. He is respected across East Africa for his skill in witchcraft and many other areas.
+    </p>
+  </div>
+
+  <div id="service-list-container">
+    {% for service in services %}
+      <a href="/services/{{ service.title }}/" class="block py-2 my-6 sm-4">
+        <div class="relative flex items-start flex-col space-y-3 md:flex-row sm:space-x-8">
+          <div
+            class="aspect-h-2 aspect-w-3 block overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-800/50 aspect-video md:w-2/6">
+            <img class="w-full rounded-lg object-contain" src="{{ service.image.url }}" alt="" />
+          </div>
+      
+          <div class="md:w-4/6">
+            <h3 class="mb-3 text-xl text-slate-800 dark:text-slate-200">{{ service.title }}</h3>
+      
+            <p class="text-slate-600 dark:text-slate-400 md:text-base line-clamp-6">
+              {{ service.description }}
+            </p>
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+
+  
+  </div>
+
+  <div class="pl-4">
+    <ol class="list-disc md:text-base">
+      {% for serve in services_list %}
+        <li>{{ serve }}</li>
+      {% endfor %}
+
+      <div class="flex items-center space-x-2">
+        <a
+          href="/services/"
+          class="text-base flex items-center justify-center h-10 w-fit px-4 border border-blue-500 text-blue-500 list-none mt-2 rounded-full -ml-2"
+        >
+          More
+        </a>
+
+        <a href="/jajja/"
+          class="text-base flex items-center justify-center h-10 w-fit px-4 border border-blue-500 text-blue-500 list-none mt-2 rounded-full -ml-2">
+          Add
+        </a>
+
+      </div>
+    </ol>
+  </div>
+</div>
+
+<div id="jaaja" class="mb-10">
+  <div class="mb-4">
+    <h3 class="capitalize text-3xl md:text-4xl">About Jaaja</h3>
+    <p class="md:text-base">
+      Jaaja Mumalansonga is highly esteemed because of his compassionate and supportive approach as a traditional healer.
+      he's renowned for her personalized care, ensuring he comprehends the unique needs of each individual. Whether
+      in-person or online, he has assisted numerous individuals from across the globe, earning widespread recognition for his
+      dedication and the working wizardry that accompanies his in addressing diverse challenges.
+    </p>
+  </div>
+
+  <div class="">
+    <h4 class="text-lg mb-2 capitalize">You must know</h4>
+    <p class="md:text-base">
+    Jaaja Mumalansonga is highly regarded for his kindness and assistance as a traditional healer. He's well-known for his
+    personalized approach to solving people's issues, ensuring he fully comprehends their needs. Whether in-person or
+    online, he has aided numerous individuals worldwide, earning widespread admiration for his caring nature and effective
+    problem-solving skills. Please note that all individuals seeking his services must be 18 years and above and of sound
+    mind when requesting or participating in spells. Additionally, it is advisable to consult a doctor if the issue
+    persists.
+    </p>
+  </div>
+</div>
+
+ {% include './contact.html' %}
+
+{% endblock content %}

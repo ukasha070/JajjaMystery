@@ -1,0 +1,26 @@
+/* static/src/input.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .closed {
+    @apply invisible opacity-0;
+  }
+  
+  .opened {
+    @apply visible opacity-100;
+  }
+
+  h2, h1, h3, h4 {
+    @apply dark:text-neutral-300
+
+  }
+  .input-field {
+    @apply w-full h-12 outline-none outline-transparent px-4 bg-transparent text-neutral-1 border border-neutral-100 dark: border-neutral-800 rounded-xl
+  }
+  .input-textarea {
+    @apply w-full h-fit outline-none outline-transparent p-4 bg-transparent text-neutral-1 border border-neutral-100 dark: border-neutral-800 rounded-xl
+  }
+}

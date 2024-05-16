@@ -1,0 +1,79 @@
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="{% static 'images/JMLogo.svg' %}" type="image/x-icon">
+
+    <meta name="description" content="If you are look for working wizardry, Witches or Spells Jajja Mumalansoga is one of the best and most respected local doctor in East Africa, Uganda how can help you out don't hestitate.">
+
+    <title>{% block title%} Home {% endblock title %}</title>
+
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    {% endcompress %}
+
+</head>
+
+<body class="light">
+    {% include "./header.html" %}
+    {% include "./sidebar.html" %}
+
+
+    <div class="font-outfit min-h-screen text-sm text-neutral-700 px-6 sm:px-10 md:px-16 dark:bg-neutral-800 dark:text-neutral-400">
+        <div class="h-20"></div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    {% if messages %}
+    <div id="message-wrapper" class="fixed flex items-center space-x-2 max-w-[80%] top-20 left-1/2 -translate-x-1/2 z-50 bg-neutral-200 border shadow-neutral-200 h-fit px-3 py-2 text-sm dark:bg-neutral-900">
+        {% for message in messages %}
+            <p class="message-{{ message.tags }}">{{ message }} </p>
+        {% endfor %}
+
+        <button 
+            type="button" 
+            onclick="closeMessageWrapper()" 
+            class="h-7 aspect-square flex items-center justify-center cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+    {% endif %}
+
+    <script>
+        const sidebarWrapper = document.getElementById("sidebar-wrapper")
+        
+        function openOrCloseSidebar () {
+            if(sidebarWrapper.classList.contains("closed")) {
+                sidebarWrapper.classList.remove("closed")
+                sidebarWrapper.classList.add("opened")
+            }
+            else {
+                sidebarWrapper.classList.remove("opened")
+                sidebarWrapper.classList.add("closed")
+            }
+        }
+        
+        function closeMessageWrapper() {
+            const messageWrapper = document.getElementById("message-wrapper")
+            messageWrapper.classList.add("closed")
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<header
+  class="flex items-center h-16 w-full fixed top-0 left-0 bg-neutral-100 dark:bg-neutral-800 z-50"
+>
+  <div
+    class="h-12 flex items-center justify-between w-full px-4 sm:px-10 md:px-12 space-x-4"
+  >
+    <a href="/" class="block">
+      <div id="logo" class="logo flex items-center space-x-2 font-outfit">
+        <p class="flex items-center space-x-1 font-bold text-xl">
+          <span class="text-blue-500"
+            ><span>J</span><span class="hidden sm:inline">aaja</span></span
+          >
+          <span class="dark:text-neutral-100"
+            ><span>M</span><span class="hidden sm:inline">ystery</span></span
+          >
+        </p>
+      </div>
+    </a>
+    <div class="flex items-center space-x-3 h-full w-full max-w-xl">
+      <form action="/services/" method="get" class="h-full w-full">
+        <div
+          id="search-container"
+          class="w-full h-full flex items-center justify-between bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-700 rounded-xl pl-4 pr-3"
+        >
+          <input
+            type="text"
+            name="search"
+            placeholder="Search for service and more..."
+            class="h-full w-full bg-transparent outline-transparent outline-none text-sm"
+          />
+
+          <button
+            type="submit"
+            class="h-8 aspect-square flex items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </div>
+      </form>
+
+      <button
+        type="button"
+        onclick="openOrCloseSidebar()"
+        class="h-full aspect-square flex items-center justify-center bg-neutral-200 dark:bg-neutral-700 text rounded-xl dark:text-neutral-300"
+      >
+        <svg
+          class="fill-none stroke-2 stroke-current h-5 w-5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          version="1.1"
+          viewBox="0 0 24 24"
+        >
+          <g transform="rotate(-90,12,12)">
+            <line x1="12" x2="12" y1="20" y2="10" />
+            <line x1="18" x2="18" y1="20" y2="4" />
+            <line x1="6" x2="6" y1="20" y2="16" />
+          </g>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

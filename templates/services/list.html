@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% load static %} 
+
+{% block title %} Services Offered {% endblock title %}
+
+{% block content %} 
+    {% if searchQs %}
+    <p class="font-light text-base mb-6">Search for: {{searchQs}}</p>
+    {% endif %} 
+
+    {% if page_obj.object_list %} 
+        {% for service in page_obj.object_list %}
+            <a href="/services/{{ service.title }}/" class="block py-2 my-6 sm-4">
+            <div
+                class="relative flex items-start flex-col space-y-3 md:flex-row sm:space-x-8"
+            >
+                <div
+                class="aspect-h-2 aspect-w-3 block overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-800/50 aspect-video md:w-2/6"
+                >
+                <img
+                    class="w-full rounded-lg object-contain"
+                    src="{{ service.image.url }}"
+                    alt=""
+                />
+                </div>
+
+                <div class="md:w-4/6">
+                <h3 class="mb-3 text-xl text-slate-800 dark:text-slate-200">
+                    {{ service.title }}
+                </h3>
+
+                <p class="text-slate-600 dark:text-slate-400 md:text-base line-clamp-6">
+                    {{ service.description }}
+                </p>
+                </div>
+            </div>
+            </a>
+        {% endfor %}
+
+        <div
+        class="flex items-center justify-center space-x-6 w-full h-12 mt-10"
+        >
+            {% if page_obj.has_previous %}
+
+                {% if searchQs %}
+                <a href="?search={{ searchQs }}&page={{ page_obj.previous_page_number }}"
+                    class="h-12 bg-neutral-100 aspect-video flex items-center justify-center border w-fit ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    <span class="mr-3">Previous </span>
+                </a>
+                {% else %}
+                <a href="?page={{ page_obj.previous_page_number }}"
+                    class="h-12 bg-neutral-100 aspect-video flex items-center justify-center border w-fit ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    <span class="mr-3">Previous </span>
+                </a>
+                {% endif %}
+            {% endif %}
+
+            <div class="w-28 flex items-center justify-center ">
+                Page {{ page_num }}
+            </div>
+
+            {% if page_obj.has_next %}
+                {% if searchQs %} 
+                    <a href="?search={{ searchQs }}&page={{ page_obj.next_page_number }}"
+                        class="h-12 bg-neutral-100 aspect-video flex items-center justify-center border">
+                        <span>Next </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </a>
+                {% else %} 
+                    <a
+                        href="?page={{ page_obj.next_page_number }}"
+                        class="h-12 bg-neutral-100 aspect-video flex items-center justify-center border"
+                    >
+                        <span>Next </span>
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-chevron-left"
+                        >
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </a>
+                {% endif %}
+            {% endif%}
+        </div>
+    {% else %} 
+            {% if searchQs %}
+            <div class="h-52 w-full flex flex-col items-center justify-center text-center">
+            <div class="w-1/6 my-4">
+                <div>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-full aspect-square"
+                >
+                    <path
+                    d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+                    ></path>
+                </svg>
+                </div>
+            </div>
+            <p class="block text-xl font-light">
+                No Results Found: {{ searchQs | safe }}
+            </p>
+            </div>
+            {% else %}
+            <div class="h-52 w-full flex flex-col items-center justify-center text-center">
+            <div class="w-1/6 my-4">
+                <div>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-full aspect-square"
+                >
+                    <path
+                    d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+                    ></path>
+                </svg>
+                </div>
+            </div>
+            <p class="block text-xl font-light">No Service at the moment.</p>
+            </div>
+            {% endif %} 
+    {% endif %} 
+
+    {% include '../footer.html'%}
+{% endblock content %}

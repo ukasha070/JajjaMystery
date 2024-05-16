@@ -1,0 +1,81 @@
+<aside id="sidebar-wrapper" class="h-screen w-full fixed z-50 duration-300 closed ">
+  <!-- context -->
+  <div class="w-5/6 md:w-[20rem] h-full overflow-y-auto bg-white dark:bg-neutral-800 z-10 absolute font-outfit border-r  dark:border-neutral-400">
+    <div class="w-full h-full p-5">
+      <!-- header -->
+      <div class="flex items-center h-14 pl-1">
+        <a href="/" class="block">
+          <div id="logo" class="logo flex items-center space-x-2 font-outfit">
+            <p class="flex items-center space-x-1 font-bold text-xl">
+              <span class="text-blue-500"
+                ><span>J</span><span class="hidden sm:inline">aaja</span></span
+              >
+              <span  class="dark:text-neutral-100"
+                ><span>M</span><span class="hidden sm:inline">ystery</span></span
+              >
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- nav Links -->
+      <div class="pt-2">
+        <ul class="dark:text-neutral-300 text-neutral-700">
+          <li class="h-12 rounded-2xl w-full font-semibold">
+            <a
+              href="/"
+              class="h-full w-full flex items-center justify-start px-2 hover:text-blue-500 hover:bg-neutral-100 duration-300 dark:hover:bg-neutral-700"
+            >
+              Home
+            </a>
+          </li>
+          <li class="h-12 rounded-2xl w-full font-semibold">
+            <a
+              href="/services/"
+              class="h-full w-full flex items-center justify-start px-2 hover:text-blue-500 hover:bg-neutral-100 duration-300 dark:hover:bg-neutral-700"
+            >
+              Services
+            </a>
+          </li>
+          <li class="h-12 rounded-2xl w-full font-semibold">
+            <a
+              href="/about/"
+              class="h-full w-full flex items-center justify-start px-2 hover:text-blue-500 hover:bg-neutral-100 duration-300 dark:hover:bg-neutral-700"
+            >
+              About
+            </a>
+          </li>
+          <li class="h-12 rounded-2xl w-full font-semibold">
+            <a
+              href="/contact/"
+              class="h-full w-full flex items-center justify-start px-2 hover:text-blue-500 hover:bg-neutral-100 duration-300 dark:hover:bg-neutral-700"
+            >
+              Contact
+            </a>
+          </li>
+
+          {% if user.is_authenticated %}
+          <li class="h-12 rounded-2xl w-full font-semibold mt-10 px-2">
+            <p class="w-full h-12 flex items-center justify-center border-2 font-light rounded-full border-blue-500 text-blue-500 ">
+              Authenticated
+            </p>
+          </li>
+
+          <li class="h-12 rounded-2xl w-full font-semibold mt-6 px-2">
+            <p
+              class="w-full h-12 flex items-center justify-center border-2 font-light rounded-full border-neutral-500 text-neutral-500 ">
+              Sign Out
+            </p>
+          </li>
+          {% endif %}
+       
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- buttons -->
+  <div class="w-full h-full bg-neutral-800 bg-opacity-60">
+    <button type="button" onclick="openOrCloseSidebar()" class="h-full w-full cursor-pointer"></button>
+  </div>
+</aside>
