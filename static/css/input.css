@@ -24,3 +24,12 @@
     @apply w-full h-fit outline-none outline-transparent p-4 bg-transparent text-neutral-1 border border-neutral-100 dark: border-neutral-800 rounded-xl
   }
 }
+
+#banner {
+  background-image: url("/static/images/banner-photo.jpg");
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}

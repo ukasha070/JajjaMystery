@@ -15,7 +15,10 @@
 
     <link rel="shortcut icon" href="{% static 'images/JMLogo.svg' %}" type="image/x-icon">
 
-    <meta name="description" content="If you are look for working wizardry, Witches or Spells Jajja Mumalansoga is one of the best and most respected local doctor in East Africa, Uganda how can help you out don't hestitate.">
+    {% block description %}
+        <meta name="description" content="If you are look for working wizardry, Witches or Spells Jajja Mumalansoga is one of the best and most respected local doctor in East Africa, Uganda how can help you out don't hestitate, include love, birth, luck, knowledge, business and more am here for you. whatsapp or call ">
+    {% endblock description %}
+
 
     <title>{% block title%} Home {% endblock title %}</title>
 
@@ -30,14 +33,14 @@
     {% include "./sidebar.html" %}
 
 
-    <div class="font-outfit min-h-screen text-sm text-neutral-700 px-6 sm:px-10 md:px-16 dark:bg-neutral-800 dark:text-neutral-400">
+    <div class="font-outfit min-h-screen  text-neutral-700 dark:bg-neutral-800 dark:text-neutral-400">
         <div class="h-20"></div>
         {% block content %}
         {% endblock content %}
     </div>
 
     {% if messages %}
-    <div id="message-wrapper" class="fixed flex items-center space-x-2 max-w-[80%] top-20 left-1/2 -translate-x-1/2 z-50 bg-neutral-200 border shadow-neutral-200 h-fit px-3 py-2 text-sm dark:bg-neutral-900">
+    <div id="message-wrapper" class="fixed flex items-center space-x-2 max-w-[80%] top-20 left-1/2 -translate-x-1/2 z-50 bg-neutral-200 border shadow-neutral-200 h-fit px-3 py-2  dark:bg-neutral-900">
         {% for message in messages %}
             <p class="message-{{ message.tags }}">{{ message }} </p>
         {% endfor %}

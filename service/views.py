@@ -8,7 +8,6 @@ from jajjaMystery.utils import check_for_xss
 from .models import Service
 
 
-
 def services_list_view(request):
     searchQuery = request.GET.get("search")
     pageNum = request.GET.get("page")

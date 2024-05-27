@@ -1,5 +1,8 @@
 from pathlib import Path
 import os
+import dotenv
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-        'compressor',
+    'compressor',
     'service',
     'base'
 ]
@@ -145,7 +148,7 @@ EMAIL_HOST_USER = 'workukasha@gmail.com'
 EMAIL_HOST_PASSWORD = 'kbgtczcngsozzgrd'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
+DEFAULT_FROM_EMAIL = ''
 
 SESSION_COOKIE_AGE = 900
 SESSION_SAVE_EVERY_REQUEST = True

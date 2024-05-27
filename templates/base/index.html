@@ -1,14 +1,16 @@
 {% extends "base.html" %} 
 {% load static %}
 {% block content %}
-<div id="banner" class="flex flex-col space-y-4 py-6 mb-4">
-  <h1 class="text-3xl md:text-7xl font-bold mb-3">Jaaja Mumalansonga</h1>
-  <p class="md:text-base">
-    Jajja Mumalansoga is a Esteemed Medicine Man, Traditional Healer, Seer, Witch doctor and Ritualist in East Africa, Uganda
-  </p>
+<div id="banner" class="h-[30rem] flex flex-col space-y-4 py-6 mb-4 w-full">
+  <div class="flex flex-col space-y-4 px-10 md:px-16">
+    <h1 class="text-3xl md:text-7xl font-bold mb-3 text-neutral-100">Jaaja Mumalansonga</h1>
+    <p class="md:text-base text-neutral-200">
+      Jajja Mumalansoga is a Esteemed Medicine Man, Traditional Healer, Seer, Witch doctor and Ritualist in East Africa, Uganda
+    </p>
+  </div>
 </div>
 
-<div id="services" class="flex flex-col space-y-4 mb-10">
+<div id="services" class="flex flex-col space-y-4 mb-10 px-6 sm:px-10 md:px-28 pt-10">
   <div class="">
     <h3 class="capitalize text-3xl md:text-4xl mb-2">Services i Offer</h3>
     <!-- <p class="md:text-base">
@@ -71,28 +73,43 @@
   </div>
 </div>
 
-<div id="jaaja" class="mb-10">
-  <div class="mb-4">
-    <h3 class="capitalize text-3xl md:text-4xl">About Jaaja</h3>
-    <p class="md:text-base">
-      Jaaja Mumalansonga is highly esteemed because of his compassionate and supportive approach as a traditional healer.
-      he's renowned for her personalized care, ensuring he comprehends the unique needs of each individual. Whether
-      in-person or online, he has assisted numerous individuals from across the globe, earning widespread recognition for his
-      dedication and the working wizardry that accompanies his in addressing diverse challenges.
-    </p>
+  <div class="px-6 sm:px-10 md:px-28">
+
+    {% include '../inners/testimonial.html' %}
+  </div>  
+
+
+<div id="jaaja" class="flex items-start flex-col md:flex-row space-y-10 lg:space-x-20 lg:space-y-0 mb-10 px-6 sm:px-10 md:px-28 pt-10">
+  <div class="w-full md:h-[10rem] aspect-video flex items-center justify-center mb-5 md:mb-0">
+    <img src="{% static 'images/jajja-photo.jpg' %}" alt="">
   </div>
 
-  <div class="">
-    <h4 class="text-lg mb-2 capitalize">You must know</h4>
-    <p class="md:text-base">
-    Jaaja Mumalansonga is highly regarded for his kindness and assistance as a traditional healer. He's well-known for his
-    personalized approach to solving people's issues, ensuring he fully comprehends their needs. Whether in-person or
-    online, he has aided numerous individuals worldwide, earning widespread admiration for his caring nature and effective
-    problem-solving skills. Please note that all individuals seeking his services must be 18 years and above and of sound
-    mind when requesting or participating in spells. Additionally, it is advisable to consult a doctor if the issue
-    persists.
-    </p>
+  <div>
+
+    <div class="mb-4">
+      <h3 class="capitalize text-3xl md:text-4xl">About Jaaja</h3>
+      <p class="md:text-base">
+        Jaaja Mumalansonga is highly esteemed because of his compassionate and supportive approach as a traditional healer.
+        he's renowned for her personalized care, ensuring he comprehends the unique needs of each individual. Whether
+        in-person or online, he has assisted numerous individuals from across the globe, earning widespread recognition for his
+        dedication and the working wizardry that accompanies his in addressing diverse challenges.
+      </p>
+    </div>
+
+
+    <div class="">
+      <h4 class="text-lg mb-2 capitalize">You must know</h4>
+      <p class="md:text-base">
+      Jaaja Mumalansonga is highly regarded for his kindness and assistance as a traditional healer. He's well-known for his
+      personalized approach to solving people's issues, ensuring he fully comprehends their needs. Whether in-person or
+      online, he has aided numerous individuals worldwide, earning widespread admiration for his caring nature and effective
+      problem-solving skills. Please note that all individuals seeking his services must be 18 years and above and of sound
+      mind when requesting or participating in spells. Additionally, it is advisable to consult a doctor if the issue
+      persists.
+      </p>
+    </div>
   </div>
+
 </div>
 
  {% include './contact.html' %}

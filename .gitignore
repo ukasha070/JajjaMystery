@@ -1,0 +1,19 @@
+# Python compiled files
+*.pyc
+__pycache__/
+
+# Virtual environment
+venv/
+
+# Django-specific
+*.sqlite3
+media/
+static/CACHE/
+node_modules/
+
+# IDE files
+.idea/
+.vscode/
+
+.env.local
+.env

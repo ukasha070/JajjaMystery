@@ -32,8 +32,10 @@ def contact_view(request):
 def logout_view(request):
     if request.user.is_authenticated:
         logout(request)
+        return redirect("/")
     else:
-        redirect("/")
+        messages.error(request, "You must be logged in.")
+        return redirect("/")
 
 def send_contact_message_view(request):
     form = MessageForm()
