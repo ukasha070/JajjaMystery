@@ -40,9 +40,9 @@
     </div>
 
     {% if messages %}
-    <div id="message-wrapper" class="fixed flex items-center space-x-2 max-w-[80%] top-20 left-1/2 -translate-x-1/2 z-50 bg-neutral-200 border shadow-neutral-200 h-fit px-3 py-2  dark:bg-neutral-900">
+    <div id="message-wrapper" class="fixed flex items-center space-x-2 max-w-[80%] top-20 left-1/2 -translate-x-1/2 z-50 bg-neutral-200 shadow-neutral-200 h-fit px-3 py-2  dark:bg-neutral-900 dark:text-neutral-100">
         {% for message in messages %}
-            <p class="message-{{ message.tags }}">{{ message }} </p>
+            <p class="message-{{ message.tags }} ">{{ message }} </p>
         {% endfor %}
 
         <button 

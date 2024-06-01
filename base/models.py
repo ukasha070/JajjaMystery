@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager)
 
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 import uuid
 
 # user manager
@@ -57,3 +60,25 @@ class User(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+
+
+class Testimonial(models.Model):
+    title = models.CharField(max_length=250, default="title")
+    location = models.CharField(max_length=100)
+    full_name = models.CharField(max_length=100)
+    description = models.TextField(max_length=500)
+    image = models.ImageField(upload_to="testimonials")
+    create_at = models.DateTimeField(auto_created=True)
+    published =  models.BooleanField(default=False)
+    
+    def __str__(self) -> str:
+        return self.full_name
+
+
+@receiver(post_save, sender=Testimonial)
+def delete_oldest_testimonial(sender, instance, created, **kwargs):
+    if created:
+        testimonials_count = Testimonial.objects.count()
+        if testimonials_count > 10:
+            oldest_testimonial = Testimonial.objects.order_by('created_at').first()
+            oldest_testimonial.delete()

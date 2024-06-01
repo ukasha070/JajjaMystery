@@ -18,12 +18,19 @@ def services_list_view(request):
         services = Service.objects.filter(Q(published=True) & (Q(title__icontains=searchQs) | Q(description__icontains=searchQs))).distinct().order_by("-id")
 
         p = Paginator(services, 2)
+        if pageNum:
+            pageNum = pageNum
+        else:
+            pageNum = 1
         page_obj = p.get_page(pageNum)
             
     else:
         services = Service.objects.filter(published=True).order_by("id")
         p = Paginator(services, 2)
-
+        if pageNum:
+            pageNum = pageNum
+        else:
+            pageNum = 1
         page_obj = p.get_page(pageNum)
 
     context = {"page_obj": page_obj, "searchQs": searchQs, "page_num": pageNum}

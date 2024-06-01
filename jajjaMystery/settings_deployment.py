@@ -5,9 +5,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+SECRET_KEY = os.getenv("SECRET_KEY")
 TO_EMAIL_HOST = os.getenv("TO_EMAIL_HOST")
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+
+DB_NAME = os.getenv("DB_NAME")
+DB_USERNAME = os.getenv("DB_USERNAME")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -18,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b0gtw+rjimya9dpy%7(=2dnfhdp9qgehvjpse0689+@&8x2z!z'
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["www.jajja-mumalansonga.com", "jajja-mumalansonga.com"]
 
 AUTH_USER_MODEL = "base.User"
 
@@ -77,8 +82,12 @@ WSGI_APPLICATION = 'jajjaMystery.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DB_NAME,
+        'USER': DB_USERNAME,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -158,3 +167,14 @@ DEFAULT_FROM_EMAIL = TO_EMAIL_HOST
 
 SESSION_COOKIE_AGE = 900
 SESSION_SAVE_EVERY_REQUEST = True
+
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+SECURE_HSTS_SECONDS = 86400
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True

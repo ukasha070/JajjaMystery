@@ -2,14 +2,12 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
 import os
-from .settings import (
-  EMAIL_HOST_USER,
-)
 from dotenv import load_dotenv
 
 load_dotenv()
 
 TO_EMAIL_HOST = os.getenv("TO_EMAIL_HOST")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 
 
 def send_email_to_jajja(html_template, context):

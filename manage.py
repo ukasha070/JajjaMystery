@@ -3,10 +3,16 @@
 import os
 import sys
 
+from jajjaMystery.settings import DEBUG
+
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jajjaMystery.settings')
+    if DEBUG:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jajjaMystery.settings')
+    else: 
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jajjaMystery.settings_deployment')
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
