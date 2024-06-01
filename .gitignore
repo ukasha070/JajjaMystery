@@ -9,7 +9,7 @@ venv/
 *.sqlite3
 db.sqlite3
 media/
-static/CACHE/
+static/
 node_modules/
 
 # IDE files
